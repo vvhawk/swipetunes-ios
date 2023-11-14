@@ -7,6 +7,7 @@
 1. [Overview](#Overview)
 1. [Product Spec](#Product-Spec)
 1. [Wireframes](#Wireframes)
+2. [Progress](#Progress)
 
 ## Overview
 
@@ -57,24 +58,34 @@ Swipetunes is a dynamic music discovery app that lets you find your perfect matc
 
   - User can login via Spotify 
 <img src="https://i.imgur.com/1cawsQA.png" width = 300>
- 
 
+ Sprint 1
+- [x] Login UI
+- [ ] Spotify API connection
+- [ ] Swipe to Login
 
 
 - Discover
-<img src="https://i.imgur.com/YmBz23n.png" width = 300>  
-  - User can add to new or existing playlist
-  - User can get recommendations based on user's top tracks
-  - User can listen to a snippit of each song recommended
-  - User can swipe right to add song to playlist
-  - User can swipe left to dismiss the song
-  - User can logout
+<img src="https://i.imgur.com/YmBz23n.png" width = 300>
+
+Sprint 2  
+- [ ] User can listen to a snippit of each song recommended  
+- [ ] User can get recommendations based on user's top tracks
+ 
+Sprint 3
+- [ ] User can swipe right to add song to playlist  
+- [ ] User can swipe left to dismiss the song
+
+
+Sprint 5
+- [ ] User can add to new or existing playlist
 
 - Log
 <img src="https://i.imgur.com/cOkiu34.png" width = 300>
 
-  - User can see a log of their recently swiped songs
-  - User can logout
+Sprint 4  
+- [ ] User can see a log of their recently swiped songs  
+- [ ] User can logout
 
 ### 3. Navigation
 
@@ -96,6 +107,16 @@ Swipetunes is a dynamic music discovery app that lets you find your perfect matc
 
 ## Wireframes
 
-<img src="enter" >
 
 <img src="https://i.imgur.com/vlKmgnP.png" width = 700>
+
+
+## Progress
+
+Reflection: More work needed. Will adjust goals accordingly. API might take time to implement with authorization. Recalibrated. 
+
+- I have read API documentation and identified UIKit components needed
+- I have designed logos and UIs
+- I have started interactive login screen
+  
+  <img src="extras/ms1.gif" width = 450>
