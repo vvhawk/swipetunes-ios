@@ -115,7 +115,48 @@ Sprint 4
 
 Reflection: More work needed. Will adjust goals accordingly. API might take time to implement with authorization. Recalibrated. 
 
-- I have read API documentation and identified UIKit components needed
+- I have read API documentation and identified UIKit components needed  
+ 
+**Login Screen**  
+UIView: The base view for your login screen.
+UIImageView: For any logos or branding images.
+UIButton: To initiate the login process, triggering the OAuth flow with Spotify.
+
+**Spotify Authentication**  
+WebKit: To present a web view for the Spotify login and permission grant process. This might involve using WKWebView.
+
+**Main Interface with Two Fragments**  
+UITabBarController: To manage the two main fragments (tabs) of your app.
+UINavigationController: Optionally, to manage navigation within each tab.
+
+**Music Swiping Fragment**  
+UIView: For displaying album art and swiping functionality.
+UIImageView: To show the album art.
+UIButton: For the play and pause functionalities.
+Custom Gesture Recognizers: For swipe actions (right for like, left for dislike).
+AVFoundation: For handling music playback of 30-second previews.
+Custom UIView: To show green or red borders based on swipe actions.
+
+**Past Swipes Fragment (Recycler View)**  
+UITableView: iOS equivalent of RecyclerView for listing past swipes.
+UITableViewCell: Custom cells to display each past swipe, with background color reflecting the user's choice (green for like, red for dislike).
+
+**Networking and Data Handling:**  
+URLSession: For networking, to interact with the Spotify API.
+Custom Data Models: To handle and store the data fetched from Spotify.
+
+**Additional UI Components**  
+UIAlertController: For displaying any alerts or errors.
+UIActivityIndicator: To indicate loading or processing states.
+
+**Data Persistence**  
+CoreData or UserDefaults: To persist user preferences or any local data storage needs.
+
+**Authentication and Security**  
+Keychain Services: To securely store authentication tokens.
+
+**Spotify SDK Integration**  
+Potentially using any available Spotify iOS SDKs for deeper integration.
 - I have designed logos and UIs
 - I have started interactive login screen
   
