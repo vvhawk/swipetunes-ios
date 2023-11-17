@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		4C2930522B05CDC9007B7116 /* SpotifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2930512B05CDC9007B7116 /* SpotifyModels.swift */; };
 		4C2930542B05D024007B7116 /* SpotifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2930532B05D024007B7116 /* SpotifyService.swift */; };
+		4C2930562B06BACE007B7116 /* SwipeLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2930552B06BACE007B7116 /* SwipeLog.swift */; };
+		4C29305A2B06E632007B7116 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2930592B06E632007B7116 /* LogViewController.swift */; };
+		4C29305C2B06E80E007B7116 /* SwipeLogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C29305B2B06E80E007B7116 /* SwipeLogTableViewCell.swift */; };
+		4C29305E2B0720EB007B7116 /* SwipeHistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C29305D2B0720EB007B7116 /* SwipeHistoryManager.swift */; };
 		4CD2D6FC2B059D22000C0E90 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD2D6FB2B059D22000C0E90 /* DiscoverViewController.swift */; };
 		4CD2D7032B05B231000C0E90 /* Caveat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CD2D6FF2B05B231000C0E90 /* Caveat-Medium.ttf */; };
 		4CD2D7042B05B231000C0E90 /* Caveat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CD2D7002B05B231000C0E90 /* Caveat-Bold.ttf */; };
@@ -27,6 +31,10 @@
 /* Begin PBXFileReference section */
 		4C2930512B05CDC9007B7116 /* SpotifyModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyModels.swift; sourceTree = "<group>"; };
 		4C2930532B05D024007B7116 /* SpotifyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyService.swift; sourceTree = "<group>"; };
+		4C2930552B06BACE007B7116 /* SwipeLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeLog.swift; sourceTree = "<group>"; };
+		4C2930592B06E632007B7116 /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
+		4C29305B2B06E80E007B7116 /* SwipeLogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeLogTableViewCell.swift; sourceTree = "<group>"; };
+		4C29305D2B0720EB007B7116 /* SwipeHistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeHistoryManager.swift; sourceTree = "<group>"; };
 		4CD2D6FB2B059D22000C0E90 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		4CD2D6FF2B05B231000C0E90 /* Caveat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Caveat-Medium.ttf"; sourceTree = "<group>"; };
 		4CD2D7002B05B231000C0E90 /* Caveat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Caveat-Bold.ttf"; sourceTree = "<group>"; };
@@ -69,6 +77,7 @@
 		4CE266632B03F28F00CBDDAD = {
 			isa = PBXGroup;
 			children = (
+				4C29305D2B0720EB007B7116 /* SwipeHistoryManager.swift */,
 				4CE2666E2B03F28F00CBDDAD /* swipetunes */,
 				4CE2666D2B03F28F00CBDDAD /* Products */,
 			);
@@ -92,7 +101,10 @@
 				4C2930532B05D024007B7116 /* SpotifyService.swift */,
 				4CE266732B03F28F00CBDDAD /* ViewController.swift */,
 				4CE266752B03F28F00CBDDAD /* Main.storyboard */,
+				4C29305B2B06E80E007B7116 /* SwipeLogTableViewCell.swift */,
+				4C2930552B06BACE007B7116 /* SwipeLog.swift */,
 				4CD2D6FB2B059D22000C0E90 /* DiscoverViewController.swift */,
+				4C2930592B06E632007B7116 /* LogViewController.swift */,
 				4CE266832B03F3A100CBDDAD /* UIColorExtensions.swift */,
 				4CE266782B03F29100CBDDAD /* Assets.xcassets */,
 				4CE2667A2B03F29100CBDDAD /* LaunchScreen.storyboard */,
@@ -178,9 +190,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C2930522B05CDC9007B7116 /* SpotifyModels.swift in Sources */,
+				4C29305C2B06E80E007B7116 /* SwipeLogTableViewCell.swift in Sources */,
+				4C29305A2B06E632007B7116 /* LogViewController.swift in Sources */,
 				4CE266742B03F28F00CBDDAD /* ViewController.swift in Sources */,
 				4CE266702B03F28F00CBDDAD /* AppDelegate.swift in Sources */,
+				4C29305E2B0720EB007B7116 /* SwipeHistoryManager.swift in Sources */,
 				4CE266722B03F28F00CBDDAD /* SceneDelegate.swift in Sources */,
+				4C2930562B06BACE007B7116 /* SwipeLog.swift in Sources */,
 				4CD2D6FC2B059D22000C0E90 /* DiscoverViewController.swift in Sources */,
 				4CE2668A2B054C9D00CBDDAD /* NotificationExtensions.swift in Sources */,
 				4C2930542B05D024007B7116 /* SpotifyService.swift in Sources */,

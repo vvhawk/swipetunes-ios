@@ -8,6 +8,9 @@
 import UIKit
 import AVFoundation
 
+
+
+
 class DiscoverViewController: UIViewController {
     
     var accessToken: String?
@@ -15,12 +18,17 @@ class DiscoverViewController: UIViewController {
     var recommendations: [DisplaySong] = []
     var currentIndex = 0
     
+    var swipeHistory: [SwipeLogEntry] = []
+    
+    
     let lilac = UIColor(hex: "9BB6FB")
     let mint = UIColor(hex: "5ECDA4")
     let blush = UIColor(hex: "FB9B9B")
     
     var player: AVPlayer?
-    
+    var away = false
+    var swipeLock = false
+    var pause = false
     
     @IBOutlet weak var albumImageView: UIImageView!
     
@@ -29,40 +37,80 @@ class DiscoverViewController: UIViewController {
     @IBOutlet weak var artistLabel: UILabel!
     
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     @IBOutlet weak var playButton: UIButton!
     
     @IBOutlet weak var pauseButton: UIButton!
     
     
     // Play button tapped
-    @IBAction func playButtonTapped(_ sender: UIButton) {
+    @IBAction func playButtonTapped(_ sender: UIButton) 
+    {
         
-        if player?.timeControlStatus == .playing 
-        {
-                // Audio is already playing, so restart it
-            player?.seek(to: CMTime.zero) 
-            { [weak self] _ in
+        
+
+        pauseButton.isHidden = false
+        
+        if player?.timeControlStatus == .paused {
+                // Audio is paused, resume playing
+            player?.play()
+            pause = false
+                playButton.imageView?.transform = CGAffineTransform(scaleX: -1, y: 1)
+        } else if player?.timeControlStatus == .playing {
+                // Audio is playing, restart from the beginning
+            player?.seek(to: CMTime.zero) { [weak self] _ in
                     self?.player?.play()
                 }
-        }
-        else 
-        {
-            // Audio is not playing, so start it normally
-            player?.play()
-            playButton.imageView?.transform = CGAffineTransform(scaleX: -1, y: 1)
-        }
+            }
+        
         
     }
 
+    
+
     // Pause button tapped
-    @IBAction func pauseButtonTapped(_ sender: UIButton) {
+    @IBAction func pauseButtonTapped(_ sender: UIButton) 
+    {
+        if(player?.timeControlStatus == .paused)
+        {
+            return
+        }
+        pause = true
         player?.pause()
         playButton.imageView?.transform = CGAffineTransform(scaleX: 1, y: 1)
+        
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+            
+        self.songLabel.text = ""
+        self.artistLabel.text = ""
+        albumImageView.image = nil
+        
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.style = .large
+        // Start loading animation
+        
+//        let indicatorSize: CGFloat = 50
+//        // Adjust size as needed
+//            activityIndicator.frame = CGRect(x: (view.frame.width - indicatorSize) / 2,
+//                    y: (view.frame.height - indicatorSize) / 2,
+//                    width: indicatorSize,
+//                     height: indicatorSize)
+        
+        
+        activityIndicator.transform = CGAffineTransform(scaleX: 3.0, y: 3.0)
+        // Adjust scale as needed
+        
+        activityIndicator.startAnimating()
+            
+        
         
         print("Access Token in DiscoverViewController: \(accessToken ?? "nil")")
         
@@ -82,7 +130,7 @@ class DiscoverViewController: UIViewController {
         }
         
         
-        let tabBarFont = UIFont(name: "Cochin-Bold", size: 12) ?? UIFont.systemFont(ofSize: 10)
+        let tabBarFont = UIFont(name: "Courier New", size: 12) ?? UIFont.systemFont(ofSize: 10)
         let attributes = [NSAttributedString.Key.font: tabBarFont]
         
         UITabBarItem.appearance().setTitleTextAttributes(attributes, for: .normal)
@@ -205,6 +253,10 @@ class DiscoverViewController: UIViewController {
             albumImageView.image = nil // or a placeholder image
             return
         }
+            
+       
+            
+            
         
         // Asynchronously load the image
         DispatchQueue.global().async 
@@ -215,6 +267,8 @@ class DiscoverViewController: UIViewController {
                 DispatchQueue.main.async
                 {
                     self.albumImageView.image = image
+                    
+                    self.activityIndicator.stopAnimating()
                 }
             }
         }
@@ -226,11 +280,16 @@ class DiscoverViewController: UIViewController {
     @objc func handleSwipe(gesture: UISwipeGestureRecognizer) 
     {
         
-        
+        if (swipeLock == true)
+        {
+            print("Swipe is locked. Ignoring swipe.")
+            return
+        }
 
         
         
         let isRightSwipe = gesture.direction == .right
+        let swipeAction: SwipeAction = isRightSwipe ? .liked : .disliked
         let labelColor: UIColor = isRightSwipe ? mint : blush
         let borderColor: CGColor = isRightSwipe ? mint.cgColor : blush.cgColor
 
@@ -238,10 +297,22 @@ class DiscoverViewController: UIViewController {
         artistLabel.textColor = labelColor
         albumImageView.layer.borderColor = borderColor
         albumImageView.layer.borderWidth = 2 // Adjust border width as needed
+        
+        
+        
+        // Log the swipe action
+            if currentIndex < recommendations.count {
+                let currentSong = recommendations[currentIndex]
+                let logEntry = SwipeLogEntry(song: currentSong, action: swipeAction, timestamp: Date())
+                swipeHistory.append(logEntry)
+            }
+        
+        swipeLock = true
 
         // Delay for 1 second before showing next recommendation
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) 
         {
+            self.swipeLock = false
             // Increment the current index and update UI
             self.currentIndex = (self.currentIndex + 1) % self.recommendations.count
             self.displayCurrentRecommendation()
@@ -251,7 +322,18 @@ class DiscoverViewController: UIViewController {
             self.artistLabel.textColor = .black
             self.albumImageView.layer.borderColor = UIColor.clear.cgColor
             self.albumImageView.layer.borderWidth = 0
+            self.playButton.imageView?.transform = CGAffineTransform(scaleX: -1, y: 1)
+            
         }
+        
+        if let tabBarVC = self.tabBarController as? UITabBarController,
+               let viewControllers = tabBarVC.viewControllers {
+                   for viewController in viewControllers {
+                       if let logVC = viewController as? LogViewController {
+                           logVC.swipedSongs = self.swipeHistory
+                       }
+                   }
+            }
         
     
     }
@@ -261,13 +343,79 @@ class DiscoverViewController: UIViewController {
         {
             guard let url = URL(string: urlString) else { return }
             player = AVPlayer(url: url)
+            
+            
+            
+            NotificationCenter.default.addObserver(
+                    self,
+                    selector: #selector(playerDidFinishPlaying),
+                    name: .AVPlayerItemDidPlayToEndTime,
+                    object: player?.currentItem
+                )
+            
+            
+            
             player?.play() // Start playing immediately
         }
 
         
 
+    @objc func playerDidFinishPlaying(note: NSNotification) {
+        player?.seek(to: CMTime.zero)
+        player?.pause()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        
+        
+        if let tabBarVC = self.tabBarController as? UITabBarController,
+               let viewControllers = tabBarVC.viewControllers {
+                   for viewController in viewControllers {
+                       if let logVC = viewController as? LogViewController {
+                           logVC.swipedSongs = self.swipeHistory
+                       }
+                   }
+            }
+
+        away = true
+        // Pause the audio player
+        player?.pause()
+    }
+    
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if (away == true)
+        {
+            
+            if (pause == false)
+            {
+                playButton.imageView?.transform = CGAffineTransform(scaleX: -1, y: 1)
+            }
+        
+            away = false
+        }
+        
+        if (pause == false)
+        {
+            player?.play()
+        }
+
+    }
+    
+    
 
     
 }
+
+
+
+
 
 

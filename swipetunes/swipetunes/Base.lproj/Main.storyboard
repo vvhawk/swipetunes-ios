@@ -23,56 +23,62 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvR-M2-E02">
-                                <rect key="frame" x="24.333333333333343" y="158.99999999999997" width="344.66666666666663" height="258.33333333333326"/>
-                                <string key="text">welcome
-to 
-swipetunes</string>
-                                <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="75"/>
-                                <color key="textColor" red="0.60568607169999999" green="0.69912436710000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="150"/>
-                                </variation>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-&gt; -&gt; -&gt; -&gt; " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYb-FB-g6o">
-                                <rect key="frame" x="16" y="557" width="217" height="58"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-&gt; -&gt; -&gt; " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYb-FB-g6o">
+                                <rect key="frame" x="73" y="551" width="172" height="58"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="217" id="Lei-gF-T8b"/>
-                                    <constraint firstAttribute="height" constant="58" id="N2H-1L-aSb"/>
+                                    <constraint firstAttribute="height" constant="58" id="HvG-51-E3c"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="50"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="28"/>
                                 <color key="textColor" red="0.60568607169999999" green="0.69912436710000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="100"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="swipe to login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8G-Jy-C43">
-                                <rect key="frame" x="124.66666666666667" y="670" width="143.66666666666663" height="29"/>
-                                <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="swipe to login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8G-Jy-C43">
+                                <rect key="frame" x="78" y="656" width="236.33333333333337" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="GBD-ag-jsr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="25"/>
                                 <color key="textColor" red="0.60568607169999999" green="0.69912436710000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Spotify" translatesAutoresizingMaskIntoConstraints="NO" id="EOh-WL-nqy">
-                                <rect key="frame" x="266" y="557" width="67" height="58"/>
+                                <rect key="frame" x="253" y="551" width="67" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="67" id="5rK-le-JIH"/>
+                                </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvR-M2-E02">
+                                <rect key="frame" x="31" y="214" width="330.33333333333331" height="258.33333333333326"/>
+                                <string key="text">welcome
+to 
+swipetunes</string>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="55"/>
+                                <color key="textColor" red="0.60568607169999999" green="0.69912436710000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="150"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.99607843159999998" green="0.97254902119999997" blue="0.85490196939999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="EOh-WL-nqy" firstAttribute="leading" secondItem="YYb-FB-g6o" secondAttribute="trailing" constant="33" id="5Kx-oA-CiZ"/>
-                            <constraint firstItem="EOh-WL-nqy" firstAttribute="bottom" secondItem="YYb-FB-g6o" secondAttribute="bottom" id="7u4-GM-PZR"/>
-                            <constraint firstItem="EOh-WL-nqy" firstAttribute="top" secondItem="YYb-FB-g6o" secondAttribute="top" id="CFp-5j-6cY"/>
-                            <constraint firstItem="YYb-FB-g6o" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="CeQ-iD-t25"/>
-                            <constraint firstItem="D8G-Jy-C43" firstAttribute="top" secondItem="YYb-FB-g6o" secondAttribute="bottom" constant="55" id="Dv3-mn-JfJ"/>
-                            <constraint firstItem="nvR-M2-E02" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="MA8-Rf-eHN"/>
-                            <constraint firstItem="D8G-Jy-C43" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="124.66666666666669" id="NlL-ja-JWt"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="EOh-WL-nqy" secondAttribute="bottom" constant="203" id="RWv-M8-rHa"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EOh-WL-nqy" secondAttribute="trailing" constant="60" id="aNM-j5-Cuw"/>
-                            <constraint firstItem="D8G-Jy-C43" firstAttribute="centerX" secondItem="nvR-M2-E02" secondAttribute="centerX" id="dkB-bi-cCd"/>
-                            <constraint firstItem="nvR-M2-E02" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="orm-y3-5Si"/>
-                            <constraint firstItem="YYb-FB-g6o" firstAttribute="top" secondItem="nvR-M2-E02" secondAttribute="bottom" constant="139.66999999999999" id="xBR-lJ-Bfp"/>
+                            <constraint firstItem="YYb-FB-g6o" firstAttribute="top" secondItem="EOh-WL-nqy" secondAttribute="top" id="5sJ-Mr-A8s"/>
+                            <constraint firstItem="YYb-FB-g6o" firstAttribute="top" secondItem="nvR-M2-E02" secondAttribute="bottom" constant="78.666666666666742" id="8Yp-1o-nI8"/>
+                            <constraint firstItem="YYb-FB-g6o" firstAttribute="bottom" secondItem="EOh-WL-nqy" secondAttribute="bottom" id="CeO-DQ-S6P"/>
+                            <constraint firstItem="YYb-FB-g6o" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="73" id="GrX-PU-aUY"/>
+                            <constraint firstItem="nvR-M2-E02" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="155" id="PI5-yW-hcj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="D8G-Jy-C43" secondAttribute="bottom" constant="133" id="RQy-Mx-GpK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EOh-WL-nqy" secondAttribute="trailing" constant="73" id="Rbw-hX-QkM"/>
+                            <constraint firstItem="EOh-WL-nqy" firstAttribute="leading" secondItem="YYb-FB-g6o" secondAttribute="trailing" constant="8" id="Suj-6f-vwU"/>
+                            <constraint firstItem="nvR-M2-E02" firstAttribute="centerX" secondItem="D8G-Jy-C43" secondAttribute="centerX" id="cDU-bY-xw5"/>
+                            <constraint firstItem="nvR-M2-E02" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="31" id="ocL-BY-Z7N"/>
+                            <constraint firstItem="D8G-Jy-C43" firstAttribute="top" secondItem="YYb-FB-g6o" secondAttribute="bottom" constant="47" id="pcB-RB-Rhh"/>
+                            <constraint firstItem="D8G-Jy-C43" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="78" id="slM-UH-O0y"/>
+                            <constraint firstItem="nvR-M2-E02" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wpW-H4-GM4"/>
                         </constraints>
                     </view>
                     <connections>
@@ -90,23 +96,75 @@ swipetunes</string>
         <!--log-->
         <scene sceneID="fK5-39-g8l">
             <objects>
-                <viewController id="A6w-V7-lqB" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogViewController" id="A6w-V7-lqB" customClass="LogViewController" customModule="swipetunes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KEx-tH-rJp">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="115" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="avk-yb-C1k">
+                                <rect key="frame" x="0.0" y="72" width="393" height="673"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99607843159999998" green="0.97254902119999997" blue="0.85490196939999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SwipeLogCell" rowHeight="115" id="sot-gR-E2L" customClass="SwipeLogTableViewCell" customModule="swipetunes" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="115"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sot-gR-E2L" id="QiT-pS-IqV">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="115"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blondie" translatesAutoresizingMaskIntoConstraints="NO" id="1jv-SE-d8e">
+                                                    <rect key="frame" x="44" y="11" width="94" height="93"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Blondie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Va-9h-OXg">
+                                                    <rect key="frame" x="172" y="67" width="201" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zdm-ik-Iz8">
+                                                    <rect key="frame" x="172" y="38" width="201" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Heart Of Glass">
+                                                            <attributes>
+                                                                <font key="NSFont" size="18" name="CourierNewPS-BoldMT"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.99607843159999998" green="0.97254902119999997" blue="0.85490196939999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <outlet property="albumImageView" destination="1jv-SE-d8e" id="GS2-jw-IR3"/>
+                                            <outlet property="artistLabel" destination="6Va-9h-OXg" id="t8N-F2-zGK"/>
+                                            <outlet property="songLabel" destination="Zdm-ik-Iz8" id="Oy3-xq-2f1"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="h5r-eG-Y8z"/>
                         <color key="backgroundColor" red="0.99607843159999998" green="0.97254902119999997" blue="0.85490196939999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="log" image="arrowshape.turn.up.backward.2.circle.fill" catalog="system" id="4Tk-WC-buB"/>
+                    <connections>
+                        <outlet property="logTableView" destination="avk-yb-C1k" id="Cff-7x-QQa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="82N-nA-yWN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2135" y="582"/>
+            <point key="canvasLocation" x="2133.5877862595421" y="581.69014084507046"/>
         </scene>
         <!--discover-->
         <scene sceneID="nnI-Bz-1aq">
             <objects>
-                <viewController id="Szv-eH-jlV" customClass="DiscoverViewController" customModule="swipetunes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiscoverViewController" id="Szv-eH-jlV" customClass="DiscoverViewController" customModule="swipetunes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N7f-SV-z4G">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -155,6 +213,10 @@ swipetunes</string>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="KJ2-pE-UjI">
+                                <rect key="frame" x="18" y="61" width="357" height="357"/>
+                                <color key="color" red="0.75134659739999998" green="0.8483365343" blue="0.99204212430000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blondie" translatesAutoresizingMaskIntoConstraints="NO" id="yHi-c6-CzC">
                                 <rect key="frame" x="18" y="61" width="357" height="357"/>
                                 <constraints>
@@ -165,12 +227,16 @@ swipetunes</string>
                         <viewLayoutGuide key="safeArea" id="JQf-lA-fRE"/>
                         <color key="backgroundColor" red="0.99607843159999998" green="0.97254902119999997" blue="0.85490196939999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="KJ2-pE-UjI" firstAttribute="leading" secondItem="yHi-c6-CzC" secondAttribute="leading" id="4FP-gM-4yS"/>
                             <constraint firstItem="yHi-c6-CzC" firstAttribute="centerX" secondItem="dme-KY-wlf" secondAttribute="centerX" id="4aI-ak-f3R"/>
                             <constraint firstItem="dme-KY-wlf" firstAttribute="leading" secondItem="N7f-SV-z4G" secondAttribute="leadingMargin" id="4eO-gG-GvO"/>
                             <constraint firstItem="ZAR-c3-DYS" firstAttribute="top" secondItem="yHi-c6-CzC" secondAttribute="bottom" constant="52" id="O4C-Yo-x5e"/>
                             <constraint firstItem="dme-KY-wlf" firstAttribute="trailing" secondItem="N7f-SV-z4G" secondAttribute="trailingMargin" id="OlF-y5-VHa"/>
+                            <constraint firstItem="KJ2-pE-UjI" firstAttribute="top" secondItem="yHi-c6-CzC" secondAttribute="top" id="b1Z-he-e0B"/>
                             <constraint firstItem="yHi-c6-CzC" firstAttribute="leading" secondItem="JQf-lA-fRE" secondAttribute="leading" constant="18" id="bFy-aW-nZn"/>
+                            <constraint firstItem="KJ2-pE-UjI" firstAttribute="bottom" secondItem="yHi-c6-CzC" secondAttribute="bottom" id="c1D-sB-7yf"/>
                             <constraint firstItem="JQf-lA-fRE" firstAttribute="bottom" secondItem="3WW-yf-gko" secondAttribute="bottom" constant="47.666666666666629" id="eh5-H6-CzS"/>
+                            <constraint firstItem="KJ2-pE-UjI" firstAttribute="trailing" secondItem="yHi-c6-CzC" secondAttribute="trailing" id="fzj-Hx-aeP"/>
                             <constraint firstItem="dme-KY-wlf" firstAttribute="centerX" secondItem="ZAR-c3-DYS" secondAttribute="centerX" id="h04-GH-f2g"/>
                             <constraint firstItem="3WW-yf-gko" firstAttribute="leading" secondItem="JQf-lA-fRE" secondAttribute="leading" constant="112" id="jtJ-RG-gzf"/>
                             <constraint firstItem="yHi-c6-CzC" firstAttribute="top" secondItem="JQf-lA-fRE" secondAttribute="top" constant="61" id="ro9-ZM-oZc"/>
@@ -180,6 +246,7 @@ swipetunes</string>
                     </view>
                     <tabBarItem key="tabBarItem" title="discover" image="music.mic.circle.fill" catalog="system" id="3Gs-Pb-ADy"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="KJ2-pE-UjI" id="Cjj-F9-KOH"/>
                         <outlet property="albumImageView" destination="yHi-c6-CzC" id="vkE-a3-MTn"/>
                         <outlet property="artistLabel" destination="ZAR-c3-DYS" id="yiz-BB-OSc"/>
                         <outlet property="pauseButton" destination="bGe-9L-Vmx" id="mAp-eD-Mbr"/>
@@ -199,7 +266,8 @@ swipetunes</string>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="B1Q-lV-NDI">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.99607843159999998" green="0.97254902119999997" blue="0.85490196939999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.99607843159999998" green="0.97254902119999997" blue="0.85490196939999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="selectedImageTintColor" red="0.60568607169999999" green="0.69912436710000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
