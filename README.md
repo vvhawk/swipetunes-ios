@@ -1,6 +1,6 @@
 
 
-# Milestone 1 - Swipetunes (iOS)
+# Milestone 2 - Swipetunes (iOS)
 
 ## Table of Contents
 
@@ -17,6 +17,8 @@
 ### Description
 
 Swipetunes is a dynamic music discovery app that lets you find your perfect match in songs. Mimicking the feel of modern dating apps, users can swipe their way to create the perfect playlist for any occasion.
+
+
 
 
 ### App Evaluation
@@ -61,20 +63,22 @@ Swipetunes is a dynamic music discovery app that lets you find your perfect matc
 
  Sprint 1
 - [x] Login UI
-- [ ] Spotify API connection
-- [ ] Swipe to Login
+- [X] Spotify API connection
+- [X] Swipe to Login  
 
+<img src="extras/login (1).gif" width = 400>
 
 - Discover
 <img src="https://i.imgur.com/YmBz23n.png" width = 300>
 
 Sprint 2  
-- [ ] User can listen to a snippit of each song recommended  
-- [ ] User can get recommendations based on user's top tracks
- 
+- [X] User can listen to a snippit of each song recommended  
+- [X] User can get recommendations based on user's top tracks  
+
+<img src="extras/discover.gif" width = 400>
 Sprint 3
-- [ ] User can swipe right to add song to playlist  
-- [ ] User can swipe left to dismiss the song
+- [X] User can swipe right to add song to playlist  
+- [X] User can swipe left to dismiss the song
 
 
 Sprint 5
@@ -84,9 +88,9 @@ Sprint 5
 <img src="https://i.imgur.com/cOkiu34.png" width = 300>
 
 Sprint 4  
-- [ ] User can see a log of their recently swiped songs  
-- [ ] User can logout
-
+- [X] User can see a log of their recently swiped songs  
+- [ ] User can logout  
+<img src="extras/log.gif" width = 400>
 ### 3. Navigation
 
 **Tab Navigation** (Tab to Screen)
