@@ -1,6 +1,6 @@
 
 
-# Milestone 2 - Swipetunes (iOS)
+# Final Project - Swipetunes (iOS)
 
 ## Table of Contents
 
@@ -16,7 +16,7 @@
 
 ### Description
 
-Swipetunes is a dynamic music discovery app that lets you find your perfect match in songs. Mimicking the feel of modern dating apps, users can swipe their way to create the perfect playlist for any occasion.
+Swipetunes is a dynamic music discovery app that lets you find your perfect match in songs. Mimicking the feel of modern dating apps, users can swipe their way to create the perfect playlist for any occasion. [Official Presentation](https://docs.google.com/presentation/d/11vpWNI9-EeamaUigWSoJ5uytdvi4rUFyWLO0QDUQUgI/edit?usp=sharing). 
 
 
 
@@ -83,13 +83,15 @@ Sprint 3
 
 Sprint 5
 - [ ] User can add to new or existing playlist
+- [X] Limitless recommendations based on likes during a session
 
 - Log
 <img src="https://i.imgur.com/cOkiu34.png" width = 300>
 
 Sprint 4  
 - [X] User can see a log of their recently swiped songs  
-- [ ] User can logout  
+- [ ] User can logout
+- [X] User can reswipe in log  
 <img src="extras/log.gif" width = 400>
 ### 3. Navigation
 
@@ -117,9 +119,7 @@ Sprint 4
 
 ## Progress
 
-Reflection: More work needed. Will adjust goals accordingly. API might take time to implement with authorization. Recalibrated. 
-
-- I have read API documentation and identified UIKit components needed  
+Much progress has been made. Demo day was a sucess and I was able to develop an algorithm to fetch unlimited recommendations tailored to user likes
  
 **Login Screen**  
 UIView: The base view for your login screen.
@@ -161,7 +161,6 @@ Keychain Services: To securely store authentication tokens.
 
 **Spotify SDK Integration**  
 Potentially using any available Spotify iOS SDKs for deeper integration.
-- I have designed logos and UIs
-- I have started interactive login screen
+
   
   <img src="extras/ms1.gif" width = 450>
