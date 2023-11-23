@@ -30,6 +30,18 @@ class DiscoverViewController: UIViewController {
     var swipeLock = false
     var pause = false
     
+    var startup = true
+    
+    
+    var likedSongsCounter = 0
+    var likedSongIDs = [String]()
+    
+    var totalSwipesCounter = 0
+    let swipeFetchThreshold = 10
+    
+    var disliker = false
+    var liker = false
+    
     @IBOutlet weak var albumImageView: UIImageView!
     
     @IBOutlet weak var songLabel: UILabel!
@@ -161,6 +173,10 @@ class DiscoverViewController: UIViewController {
         albumImageView.layer.borderColor = UIColor.clear.cgColor
         
         
+        NotificationCenter.default.addObserver(self, selector: #selector(appDidEnterBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        
+        
         if let accessToken = accessToken
         {
             SpotifyService.shared.fetchTopTracks(accessToken: accessToken)
@@ -198,8 +214,21 @@ class DiscoverViewController: UIViewController {
     }
     
     
+    @objc func appDidEnterBackground() {
+        // Pause the audio player
+        player?.pause()
+    }
+
+    @objc func appWillEnterForeground() {
+        // Resume playing if needed
+        if !pause {
+            player?.play()
+        }
+    }
     
-    func fetchRecommendations(with seedTracks: [String]) 
+    
+    
+    func fetchRecommendations(with seeds: [String])
     {
         guard let accessToken = self.accessToken else 
         {
@@ -207,17 +236,66 @@ class DiscoverViewController: UIViewController {
             return
         }
         
-        SpotifyService.shared.getRecommendations(seedTracks: seedTracks, accessToken: accessToken) 
+        let currentSeed: SeedType
+        
+        if(disliker == true)
+        {
+            currentSeed = .artists
+            disliker = false
+        }
+        else
+        {
+            currentSeed = .tracks
+        }
+        
+        
+        
+        SpotifyService.shared.getRecommendations(seeds: seeds, seedType: currentSeed, accessToken: accessToken)
         { [weak self] result in
             DispatchQueue.main.async
             {
                 switch result 
                 {
                 case .success(let recommendationsResponse):
-                    self?.recommendations = recommendationsResponse.tracks ?? []
-                    print("Recommendations: \(self?.recommendations ?? [])")
+                    //self?.recommendations = recommendationsResponse.tracks ?? []
+                    if(self?.liker == false && self?.startup == false)
+                    {
+                        self?.recommendations = recommendationsResponse.tracks ?? []
+                        self?.liker = true
+                        self?.currentIndex = 0
+                       
+                        
+                        
+                        if let tracks = recommendationsResponse.tracks {
+                            print("Recommended tracks: = \(tracks)")
+                        } else {
+                            print("Recommended tracks: = nil or empty")
+                        }
+
+                        if let currentIndex = self?.currentIndex {
+                            print("Current index = \(currentIndex)")
+                        }
+
+                        if let count = self?.recommendations.count {
+                            print("Size after fetch = \(count)")
+                        }
+                        
+                        return
+                    }
+                    self?.recommendations.append(contentsOf: recommendationsResponse.tracks ?? [])
+                    print("recommended tracks: = \(recommendationsResponse.tracks)")
+                    // Log the updated recommendations list
+                    //print("Recommendations: \(self?.recommendations ?? [])")
+                    print("size after fetch = \(self?.recommendations.count)")
+                    print(currentSeed)
                     // Call a method to update the UI with these recommendations
-                    self?.displayCurrentRecommendation()
+                    //self?.displayCurrentRecommendation()
+                    if (self?.startup == true)
+                    {
+                        self?.displayCurrentRecommendation()
+                        self?.startup = false
+                    }
+                    
                 case .failure(let error):
                     print("Error fetching recommendations: \(error)")
                 }
@@ -227,9 +305,21 @@ class DiscoverViewController: UIViewController {
     
     
     func displayCurrentRecommendation() {
+        
+        print(recommendations.count)
+        
         while currentIndex < recommendations.count {
             let currentSong = recommendations[currentIndex]
-
+            
+            print(currentSong.name ?? "no value")
+            
+            // Check if the song has already been swiped
+                    if hasBeenSwiped(song: currentSong) {
+                        currentIndex += 1
+                        continue
+                    }
+            
+            // Display the song if it has a preview URL and hasn't been swiped
             if let previewURL = currentSong.previewURL {
                 songLabel.text = currentSong.name
                 artistLabel.text = currentSong.finalArtists
@@ -289,6 +379,38 @@ class DiscoverViewController: UIViewController {
         
         
         let isRightSwipe = gesture.direction == .right
+        
+        
+        
+        if isRightSwipe, currentIndex < recommendations.count {
+                likedSongIDs.append(recommendations[currentIndex].trackID ?? "")
+                likedSongsCounter += 1
+
+                if likedSongsCounter >= 5 {
+                    fetchRecommendations(with: likedSongIDs)
+                    likedSongsCounter = 0
+                    likedSongIDs.removeAll()
+                }
+            }
+        
+        
+        totalSwipesCounter += 1
+
+        // Check if it's time to fetch new recommendations
+            if totalSwipesCounter >= swipeFetchThreshold {
+                if likedSongsCounter == 0 {
+                    // Fetch recommendations based on top genres
+                    fetchRecommendationsBasedOnTopArtists()
+                } else {
+                    // Existing logic to fetch recommendations based on liked songs
+                    fetchRecommendations(with: likedSongIDs)
+                    likedSongsCounter = 0
+                    likedSongIDs.removeAll()
+                }
+                totalSwipesCounter = 0
+            }
+        
+        
         let swipeAction: SwipeAction = isRightSwipe ? .liked : .disliked
         let labelColor: UIColor = isRightSwipe ? mint : blush
         let borderColor: CGColor = isRightSwipe ? mint.cgColor : blush.cgColor
@@ -296,7 +418,7 @@ class DiscoverViewController: UIViewController {
         songLabel.textColor = labelColor
         artistLabel.textColor = labelColor
         albumImageView.layer.borderColor = borderColor
-        albumImageView.layer.borderWidth = 2 // Adjust border width as needed
+        albumImageView.layer.borderWidth = 3 // Adjust border width as needed
         
         
         
@@ -314,7 +436,9 @@ class DiscoverViewController: UIViewController {
         {
             self.swipeLock = false
             // Increment the current index and update UI
-            self.currentIndex = (self.currentIndex + 1) % self.recommendations.count
+            //self.currentIndex = (self.currentIndex + 1) % self.recommendations.count
+            
+            self.currentIndex = (self.currentIndex + 1)
             self.displayCurrentRecommendation()
 
             // Reset colors after showing next recommendation
@@ -364,6 +488,8 @@ class DiscoverViewController: UIViewController {
         player?.seek(to: CMTime.zero)
         player?.pause()
         
+        playButton.imageView?.transform = CGAffineTransform(scaleX: 1, y: 1)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -408,6 +534,32 @@ class DiscoverViewController: UIViewController {
         }
 
     }
+    
+    
+    func fetchRecommendationsBasedOnTopArtists() {
+        guard let accessToken = self.accessToken else {
+            print("Access Token not available")
+            return
+        }
+        
+        disliker = true
+
+        SpotifyService.shared.fetchTopArtists(accessToken: accessToken) { [weak self] result in
+            switch result {
+            case .success(let artistIDs):
+                print("Fetched top artist IDs: \(artistIDs)")
+                self?.fetchRecommendations(with: artistIDs)
+            case .failure(let error):
+                print("Error fetching top artists: \(error)")
+            }
+        }
+    }
+    
+    func hasBeenSwiped(song: DisplaySong) -> Bool {
+        return swipeHistory.contains(where: { $0.song.trackID == song.trackID })
+    }
+
+
     
     
 

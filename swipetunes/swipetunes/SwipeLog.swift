@@ -9,12 +9,12 @@ import Foundation
 
 struct SwipeLogEntry {
     let song: DisplaySong
-    let action: SwipeAction
+    var action: SwipeAction
     let timestamp: Date
 }
 
 enum SwipeAction {
     case liked
     case disliked
-    case skipped
+    case none
 }

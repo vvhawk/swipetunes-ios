@@ -17,10 +17,14 @@ class SwipeLogTableViewCell: UITableViewCell {
     
     @IBOutlet weak var songLabel: UILabel!
     
+    @IBOutlet weak var playingIndicatorImageView: UIImageView!
+    
     let lilac = UIColor(hex: "9BB6FB")
     let mint = UIColor(hex: "5ECDA4")
     let blush = UIColor(hex: "FB9B9B")
     let egg = UIColor(hex: "FFF8D6")
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

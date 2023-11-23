@@ -59,6 +59,9 @@ class ViewController: UIViewController, ASWebAuthenticationPresentationContextPr
             self?.updateSwipeTunesColor()
         }
         
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(appBecameActive), name: UIApplication.didBecomeActiveNotification, object: nil)
+        
         animateSwipeGestureLabel()
         
         // Set up the swipe gesture recognizer
@@ -94,6 +97,11 @@ class ViewController: UIViewController, ASWebAuthenticationPresentationContextPr
             // Move it back to its original position
             self.swipeLabel.transform = CGAffineTransform.identity
         })
+    }
+    
+    @objc func appBecameActive() {
+        // Restart the animation
+        animateSwipeGestureLabel()
     }
     
     @objc func handleSwipeGesture(gesture: UISwipeGestureRecognizer) {

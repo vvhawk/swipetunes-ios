@@ -63,3 +63,18 @@ struct TopTrack: Codable {
     let id: String?
 }
 
+// MARK: - TopArtistsResponse
+struct TopArtistsResponse: Codable {
+    let items: [TopArtist]?
+}
+
+// MARK: - TopArtist
+struct TopArtist: Codable {
+    let id: String
+    let genres: [String]  // Include this only if you plan to use genres for something else
+}
+
+enum SeedType {
+    case tracks
+    case artists
+}
